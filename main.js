@@ -57,6 +57,9 @@ Vue.use(Col);
 Vue.use(Upload);
 Vue.use(Image);
 
+Vue.use(commonMixin)
+Vue.use(userMixin)
+
 Vue.config.productionTip = false
 
 /* 路由组件扩展 */
