@@ -36,8 +36,10 @@
 				},
 			};
 		},
-		methods: {
-			onSubmit() {
+		methods: {  
+			async onSubmit() {
+				const list = await this.$http.update_article({  })
+				  
 				console.log("submit!");
 			},
 		},
