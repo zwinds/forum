@@ -38,7 +38,9 @@
 		},
 		methods: {  
 			async onSubmit() {
-				const list = await this.$http.update_article({  })
+				const list = await this.$http.update_article(list,{ 
+					
+				})
 				  
 				console.log("submit!");
 			},

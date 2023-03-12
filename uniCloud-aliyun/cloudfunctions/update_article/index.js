@@ -39,29 +39,27 @@ exports.main = async (event, context) => {
 	} = event
 
 
-	await db.collection('feedback').add({
-			author: '{
-			"author_name": "20zhu",
-			"avatar": "//img2.sycdn.imooc.com/58d9c48f0001ad0304070270-160-160.jpg",
-			"id": "2255006",
-			"status": "normal"
-		}
-		',
+
+
+
+	await db.collection('article').add({
+		author: 'zwindx',
 		browse_count: 0,
 		classify: '茅台线报',
 		collection_count: 0,
-		comments_count:0,
-		content:"1111"
-		cover:''
-		create_time:'2019.03.19 11:46'
-		id:'6688'
-		mode:'base'
-		thumbs_up_count:'0'
-		title:"测试测试"
-	}) return {
-	code: 0,
-	data: {
-		msg: "发布动态成功！"
+		comments_count: 0,
+		content: "我正在测试哦！！！😯",
+		cover: ['https://p.ipic.vip/e8dwpy.jpg','https://p.ipic.vip/e8dwpy.jpg','https://p.ipic.vip/e8dwpy.jpg'],
+		create_time: '2019.03.19 11:46',
+		id: '6688',
+		mode: 'column',
+		thumbs_up_count: '0',
+		title: "发布动态测试",
+	})
+	return {
+		code: 0,
+		data: {
+			msg: "发布动态成功！"
+		}
 	}
-}
 };
