@@ -7,8 +7,8 @@ exports.main = async (event, context) => {
   try {
     const res = await uniCloud.sendSms({
       appid: '__UNI__600EB91', // mainfest.json中进行获取
-      smsKey: '25cfa81fcade420555022b1ee4021a8a',
-      smsSecret: 'd79e45ec2456c4d6ffc7956dba4e1f43',
+      smsKey: 'afa41cb8d0be0b007d6f0c948ed8e237',
+      smsSecret: '4c8f7e2fdcc3b61e41a2938bdc2a2fb5',
       phone,
       templateId: '12333', // 获取的短信模版
       data: {

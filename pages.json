@@ -45,6 +45,14 @@
             },
             "name": "login"
         },
+		{
+		    "path": "pages/registerUser/registerUser",
+		    "style": {
+		        "navigationBarTitleText": "用户注册",
+		        "enablePullDownRefresh": false
+		    },
+		    "name": "register"
+		},
         {
             "path": "pages/articleDetail/articleDetail",
             "style": {

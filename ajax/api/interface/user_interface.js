@@ -61,3 +61,10 @@ export const update_article= data => ajax({
   name:'update_article',
   data
 })
+
+/* 添加文章到作者那里 */
+export const update_user_article= data => ajax({
+  name:'update_user_article',
+  data
+})
+

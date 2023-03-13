@@ -14,9 +14,21 @@ exports.main = async (event, context) => {
 		id,
 		mode,
 		thumbs_up_count,
-		title
+		title,
+		userId
 	} = event
-	// "id": "302042",
+
+	//随机生成ID编码开始
+	function generateRandomNumber(length) {
+		const characters = '0123456789';
+		let result = '';
+		for (let i = 0; i < length; i++) {
+			result += characters.charAt(Math.floor(Math.random() * characters.length));
+		}
+		return result;
+	}
+	const randowID = generateRandomNumber(6)
+	//随机生成ID编码结束
 	await db.collection('article').add({
 		author: {
 			author_name: event.userinfo.author_name,
@@ -31,7 +43,7 @@ exports.main = async (event, context) => {
 		content: event.content,
 		cover: event.cover,
 		create_time: Date.now(),
-		id: '301911',
+		id: randowID, //生成一个6位随机且唯一的编码
 		mode: 'column',
 		thumbs_up_count: '0',
 		title: event.name,
@@ -39,6 +51,7 @@ exports.main = async (event, context) => {
 	console.log(event, context)
 	return {
 		event: event,
+		randowID:randowID,
 		code: 0,
 		data: {
 			msg: "发布动态成功！"

@@ -1,7 +1,7 @@
 <template>
 	<el-form ref="form" :model="form" label-width="80px">
 		<view class="writeTitle">标题</view>
-		<el-input v-model="form.name"  maxlength="25" placeholder="请输入标题" clearable></el-input>
+		<el-input v-model="form.name" maxlength="25" placeholder="请输入标题" clearable></el-input>
 		<el-form-item label="选择分类">
 			<el-checkbox-group v-model="form.type" :max="1">
 				<el-checkbox label="茅台线报" name="type"></el-checkbox>
@@ -73,17 +73,21 @@
 				};
 
 				const data = await this.$http.update_article(dataInfo, {})
+				// const idfind = await this.$http.update_user_article({
+				// 	id :'8010388',
+				// 	// article_ids:["654321"]
+				// })
 				uni.showToast({
 					title: data.msg,
 				})
-				console.log(userinfoObj, "submit!");
+				console.log(idfind, "idfind!");
 			},
 		},
 	};
 </script>
 
 <style lang="scss">
-	.writeTitle{
+	.writeTitle {
 		margin-top: 20px;
 		margin-left: 20px;
 		margin-bottom: 10px;
