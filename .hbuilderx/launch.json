@@ -6,7 +6,7 @@
         {
         	"app-plus" : 
         	{
-        		"launchtype" : "local"
+        		"launchtype" : "remote"
         	},
         	"default" : 
         	{
@@ -14,7 +14,7 @@
         	},
         	"h5" : 
         	{
-        		"launchtype" : "remote"
+        		"launchtype" : "local"
         	},
         	"mp-weixin" : 
         	{
@@ -23,8 +23,12 @@
         	"type" : "uniCloud"
         },
         {
-            "playground" : "custom",
+            "playground" : "standard",
             "type" : "uni-app:app-android"
+        },
+        {
+            "playground" : "standard",
+            "type" : "uni-app:app-ios"
         }
     ]
 }
