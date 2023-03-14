@@ -29,6 +29,17 @@ exports.main = async (event, context) => {
 	}
 	const randowID = generateRandomNumber(6)
 	//随机生成ID编码结束
+	//进行时间戳的转化     
+	const date = new Date(); // 创建日期时间对象
+	const isoString = date.toISOString(); // 将日期时间对象转化为 ISO 格式的字符串
+	const utcDate = new Date(isoString); // 将 ISO 格式的字符串转化为日期时间对象
+	const localDate = utcDate.toLocaleString(); // 将日期时间对象转化为本地时间
+	const moment = require('moment'); // 引入 Moment.js 库
+	const datetimeStr = localDate;
+	const formattedDate = moment(datetimeStr).add(8, 'hours').format('YYYY.MM.DD HH:mm');
+	console.log(formattedDate); // 输出加上 8 小时后，并格式化为指定格式的日期时间字符串
+	//时间戳转化结束
+
 	await db.collection('article').add({
 		author: {
 			author_name: event.userinfo.author_name,
@@ -42,7 +53,7 @@ exports.main = async (event, context) => {
 		comments_count: 0,
 		content: event.content,
 		cover: event.cover,
-		create_time: Date.now(),
+		create_time: formattedDate,
 		id: randowID, //生成一个6位随机且唯一的编码
 		mode: 'column',
 		thumbs_up_count: '0',
@@ -51,7 +62,7 @@ exports.main = async (event, context) => {
 	console.log(event, context)
 	return {
 		event: event,
-		randowID:randowID,
+		randowID: randowID,
 		code: 0,
 		data: {
 			msg: "发布动态成功！"

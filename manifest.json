@@ -1,6 +1,6 @@
 {
     "name" : "project_level1",
-    "appid" : "__UNI__600EB91",
+    "appid" : "__UNI__5F3724B",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -41,7 +41,9 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}
