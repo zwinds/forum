@@ -27,8 +27,21 @@ exports.main = async (event, context) => {
 		}
 		return result;
 	}
-	const randowID = generateRandomNumber(6)
+	const randowID = generateRandomNumber(7)
 	//随机生成ID编码结束
+	//时间戳格式化
+	const timestamp = Date.now();
+	const date = new Date(timestamp + 8); // 加上8毫秒数
+	const year = date.getFullYear();
+	const month = (date.getMonth() + 1).toString().padStart(2, '0');
+	const day = date.getDate().toString().padStart(2, '0');
+	const hour = date.getHours().toString().padStart(2, '0');
+	const minute = date.getMinutes().toString().padStart(2, '0');
+	const formattedDate = `${year}.${month}.${day} ${hour}:${minute}`;
+
+	console.log(formattedDate); // 输出：2023.03.16 17:50
+	//时间戳格式
+
 	await db.collection('article').add({
 		author: {
 			author_name: event.userinfo.author_name,
@@ -42,7 +55,7 @@ exports.main = async (event, context) => {
 		comments_count: 0,
 		content: event.content,
 		cover: event.cover,
-		create_time: Date.now(),
+		create_time: formattedDate,
 		id: randowID, //生成一个6位随机且唯一的编码
 		mode: 'column',
 		thumbs_up_count: '0',

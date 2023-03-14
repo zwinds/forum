@@ -42,7 +42,9 @@
                 "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}
@@ -92,8 +94,8 @@
         "appid" : "wx3af680ea824680ea",
         "setting" : {
             "urlCheck" : false,
-            "postcss" : false,
-            "minified" : false,
+            "postcss" : true,
+            "minified" : true,
             "es6" : false
         },
         "usingComponents" : true
