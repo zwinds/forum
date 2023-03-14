@@ -153,31 +153,35 @@
 					password: this.formData.password
 				};
 				/* 开始发送数据到后端 */
-				console.log(dataInfo);
-					const res = await this.$http.user_register(dataInfo, {})
-				console.log("11111");
-				if (res.code == 1) {
-					uni.showToast({
-						title: '注册成功，请开始登录！',
-						icon: 'none',
-					})
-					setTimeout(() => {
-						try {
-							uni.navigateBack()
-						} catch (e) {
-							uni.switchTab({
-								url: '/pages/register/register'
-							})
-						}
-						// #ifdef H5
-						// uni.switchTab({
-						//   url: '/pages/register/register'
-						// })
-						// #endif
-						// #ifndef H5
-						// uni.navigateBack()
-						// #endif
-					}, 1500)
+				try {
+					const res = await this.$http.user_register(dataInfo)
+					console.log(res, "11111");
+					if (res.code == 1) {
+						uni.showToast({
+							title: '注册成功，请开始登录！',
+							icon: 'none',
+						})
+						setTimeout(() => {
+							try {
+								uni.navigateBack()
+							} catch (e) {
+								uni.switchTab({
+									url: '/pages/login/login'
+								})
+							}
+							// #ifdef H5
+							// uni.switchTab({
+							//   url: '/pages/register/register'
+							// })
+							// #endif
+							// #ifndef H5
+							// uni.navigateBack()
+							// #endif
+						}, 1000)
+					}
+
+				} catch (error) {
+					console.error(error)
 				}
 			}
 		}

@@ -23,8 +23,8 @@ exports.main = async (event, context) => {
 	//随机生成ID编码结束
 	await db.collection('user').add({
 		id: randowID,
-		author_name: event.nickname,
-		avatar: '',
+		author_name: event.author_name,
+		avatar: 'https://p.ipic.vip/vubaju.png',
 		status: 'normal',
 		fans_count: 0,
 		professional: '普通用户',
