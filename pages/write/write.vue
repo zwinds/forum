@@ -7,7 +7,7 @@
 		<view class="writeTitle">动态内容</view>
 		<uni-easyinput v-model="form.content" type="textarea" autoHeight placeholder="请输入动态内容"></uni-easyinput>
 		<view class="subButton">
-			<uni-button type="primary" @click="onSubmit">发布动态</uni-button>
+			<button class="login-btn" type="primary" @click="onSubmit">发布动态</button>
 		</view>
 
 	</uni-form>
@@ -44,16 +44,17 @@
 			// //上传图片方法开始
 			// // 上传图片方法结束
 			async onSubmit() {
-				const userinfo = window.localStorage.userInfo;
-				const userinfoDate = JSON.parse(userinfo);
+				let userinfo = uni.getStorageSync('userInfo'); //使用uni的本地存储解决方案替代window
+				console.log(typeof userinfo); // 输出 "object"
+				// const userinfoDate = JSON.parse(userinfo);
+				console.log(userinfo, "8388838383883!!!");
 				let userinfoObj = {
-					author_name: userinfoDate.data.author_name,
-					avatar: userinfoDate.data.avatar,
-					id: userinfoDate.data.id,
-					status: userinfoDate.data.status,
+					author_name: userinfo.author_name,
+					avatar: userinfo.avatar,
+					id: userinfo.id,
+					status: userinfo.status,
 				};
-				// .join(", ");
-				console.log(this.tag, "7777777777!!!!!!");
+				console.log(this.tag, "选择动态的数组值");
 				let classify = this.tag
 				if (this.tag == 0) {
 					classify = '茅台线报'
@@ -115,5 +116,19 @@
 
 	.subButton {
 		margin-top: 25px;
+	}
+
+	.login-btn {
+		.login-btn {
+			width: 640rpx;
+			height: 90rpx;
+			border-radius: 10rpx;
+			background-color: $base-color;
+			color: #FFFFFF;
+			font-size: 32rpx;
+			@include flex(center);
+			margin-top: 80rpx;
+		}
+
 	}
 </style>
